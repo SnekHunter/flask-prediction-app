@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Handwritten Digit Reader</h1>
+    <p class="muted">
+      Upload a small image (PNG/JPG) of a single handwritten digit (0–9). We’ll predict the number.
+      (Note: It works best with thick lines. Using thin lines will result in wrong predictions due 
+      to compression)
+    </p>
+    <p class="muted"></p>
+  </header>
+
+  <main class="container">
+    <form id="upload-form" class="card">
+      <label class="file-label">
+        <span>Select digit image</span>
+        <input id="image" name="image" type="file" accept="image/*" required>
+      </label>
+      <button id="submit-btn" type="submit">Predict</button>
+    </form>
+
+    <div id="preview" class="preview"></div>
+
+    <section id="result" class="result" hidden>
+      <h2>Prediction</h2>
+      <div id="prediction-value" class="big-number"></div>
+      <pre id="raw-json" class="raw"></pre>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>Model: CNN Tensorflow Keras</small>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/app-script.js') }}"></script>
+</body>
+</html>
